@@ -13,6 +13,8 @@ namespace inRiverCommunity.Connectivity.iPMC.Services
 
         Task<PackageModel> GetPackage(int packageId);
 
+        Task<System.Object> DownloadPackage(int packageId);
+
         Task<PackageModel> ReplacePackageFile(int packageId, string fileName, Stream data);
 
         Task<PackageModel> UploadPackageFile(string fileName, Stream data);

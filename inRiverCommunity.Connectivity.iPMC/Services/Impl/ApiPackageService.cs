@@ -20,6 +20,9 @@ namespace inRiverCommunity.Connectivity.iPMC.Services.Impl
 
         public async Task<PackageModel> GetPackage(int packageId) 
             => await _adapter.GetAsync<PackageModel>($@"packages/{packageId}");
+        
+        public async Task<System.Object> DownloadPackage(int packageId)
+            => await _adapter.GetAsync<System.Object>($@"packages/{packageId}/content");
 
         public async Task<PackageModel> UploadPackageFile(string fileName, Stream data) 
             => await UploadOrReplacePackageFile(@"packages:uploadbase64", fileName, data);

@@ -14,7 +14,7 @@ namespace inRiverCommunity.Connectivity.iPMC.Tests
     public class ApiAdapterTests
     {
 
-        private const ApiEnvironment TestApiEnvironment = ApiEnvironment.Partner;
+        private const ApiEnvironment TestApiEnvironment = ApiEnvironment.Customer;
 
         private static readonly string TestPackageFilename = $"{typeof(TestExtensionBase).Namespace}.zip";
         private static readonly string TestPackagePath = Path.Combine(@"..\..\..\Packages", TestPackageFilename);
@@ -39,7 +39,16 @@ namespace inRiverCommunity.Connectivity.iPMC.Tests
 
             Console.WriteLine($"Total packages found: {packages.Count}");
         }
-        
+
+        [TestMethod]
+        public async Task Download_Package_Test()
+        {
+            using IApiClient adapter = new ApiClient(TestApiEnvironment, _restApiKey);
+
+            var package = await adapter.PackageService.DownloadPackage(10789);
+
+        }
+
         [TestMethod]
         public async Task Get_All_Extensions_Test()
         {

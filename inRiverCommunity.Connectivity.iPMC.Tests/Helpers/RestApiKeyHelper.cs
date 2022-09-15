@@ -18,6 +18,7 @@ namespace inRiverCommunity.Connectivity.iPMC.Tests.Helpers
              * TODO: Add file rest_api.key to the solution folder with just the key as contents. 
              * NOTE: the file rest_api.key is ignored by git, see .gitignore.
              */
+
             Assert.IsTrue(File.Exists(RestApiKeyFilePath), @"File rest_api.key does not exist in the solution folder!");
 
             string fileContents = File.ReadAllText(RestApiKeyFilePath);
